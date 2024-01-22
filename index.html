@@ -5,36 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
-    <link rel="icon" href="./img/Another_one_logo_1020Hivezzz.png" type="image/x-icon">
+    <link rel="icon" href="./img/images-removebg-preview.png" type="image/x-icon">
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <title>Attendance Registration</title>
+    <title>Status Amendment form</title>
 </head>
-<body class="bg-white h-screen flex flex-col items-center justify-center">
+<body class="bg-white h-screen flex flex-col items-center justify-center mt-8 mb-12 overflow-x-hidden">
     <nav class="bg-1020-hivezzz-500 flex items-center justify-center">
       <a href="https://www.seidet.org">
-        <img src="./img/logo_high_-_Copy__2_-removebg-preview.png" alt="seidet_logo" class="h-60">
+        <img src="./img/images-removebg-preview.png" alt="seidet_logo" class="h-20">
       </a>
       
     </nav>
     <form action="https://sheetdb.io/api/v1/g2j6zwb9elts3" method="post" id="sheetdb-form"class="bg-indigo-900 p-6 rounded-lg mt-8">
       
       <div class="mb-4">
-        <label class="block text-white font-medium mb-2">Name & Surname</label>
-        <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="name" name="data[name]">
+        <label class="block text-white font-medium mb-2">User ID</label>
+        <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="name" name="data[user_id]">
       </div>
       <div class="mb-4">
-        <label class="block text-white font-medium mb-2">Organization</label>
-        <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="organization" name="data[organization]">
+        <label class="block text-white font-medium mb-2">Date</label>
+        <input class="border border-gray-400 p-2 rounded-lg w-full" type="date" id="dateInput" name="data[date]">
       </div>
       <div class="mb-4">
-        <label class="block text-white font-medium mb-2">Phone Number</label>
-        <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="phone" name="data[phone]">
+        <label class="block text-white font-medium mb-2">Entity Name Given</label>
+        <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="phone" name="data[entity_name_given]">
       </div>
       <div class="mb-4">
-        <label class="block text-white font-medium mb-2">Email</label>
-        <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="email" name="data[email]">
+        <label class="block text-white font-medium mb-2">New Entity Name</label>
+        <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="email" name="data[new_entity_name]">
+      </div> 
+      <div class="mb-4">
+        <label class="block text-white font-medium mb-2">Nox ID</label>
+        <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="email" name="data[nox_id]">
+      </div> 
+      <div class="mb-4">
+        <label class="block text-white font-medium mb-2">Comments</label>
+        <input class="border border-gray-400 p-8 rounded-lg w-full" type="text" id="email" name="data[comments]">
       </div> 
       <button id='submit-button'class="bg-black text-white p-2 rounded-lg hover:bg-emerald-600" onclick="submitForm()">Confirm</button>
       
@@ -46,11 +54,11 @@
           <div class="col-md-6 text-black"> 
            
             
-           Seidet. &copy; Created by <a href="https://www.linkedin.com/in/kagisho-phahlamohlaka-50130b192/"> <strong>Kagisho (Taumang) Phahlamohlaka</strong></a></p>
+           Trade Shield. &copy; Created by <a href="https://www.linkedin.com/in/kagisho-phahlamohlaka-50130b192/"> <strong>Kagisho (Taumang) Phahlamohlaka</strong></a></p>
           </div>
           <div id="overlay" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
             <div class="bg-white p-4 rounded-lg shadow-lg">
-              <p class="text-center">Successful! Thank you for joining us Today!</p>
+              <p class="text-center">Successful! Added to the Spreadsheet</p>
             </div>
           </div>
         </div>
@@ -61,7 +69,12 @@
     <script>
 
 const generateCode = () => {
-  // Generate a random 10-digit code
+  /*
+    Generates a random 10-digit code.
+
+    Side note: this code has no relevance to this mini app.
+  */ 
+  
   var code = '';
   for (var i = 0; i < 10; i++) {
     code += Math.floor(Math.random() * 10);
@@ -109,6 +122,14 @@ const submitForm = (event) => {
   for (var i = 0; i < inputs.length; i++) {
     inputs[i].value = '';
   }
+  // function getCurrentDate() {
+  //             const today = new Date();
+  //             const year = today.getFullYear();
+  //             const month = String(today.getMonth() + 1).padStart(2, '0');
+  //             const day = String(today.getDate()).padStart(2, '0');
+  //             return `${year}-${month}-${day}`;
+  //           }
+  // document.getElementById('dateInput').value = getCurrentDate();
 
   // Display success message to user
 
@@ -119,6 +140,7 @@ var submitButton = document.getElementById('submit-button');
 submitButton.addEventListener('click', submitForm);
 
 
+        // Set the value of the input field to the current date on page load
     </script>
   </body>
 </html>
